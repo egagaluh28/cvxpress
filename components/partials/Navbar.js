@@ -22,26 +22,26 @@ const Navbar = () => (
         <ul className="navbar-nav ms-auto gap-lg-4">
           <li className="nav-item">
             <Link href="#" className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="#" className="nav-link">
               Tools
             </Link>
           </li>
           <li className="nav-item">
             <Link href="#" className="nav-link">
-              Resume
+              CV Templates
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="#" className="nav-link">
-              CV
+            <Link href="/#TestimonialSection" className="nav-link">
+              testimonial
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="#" className="nav-link">
-              Cover Letter
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="#" className="nav-link">
+            <Link href="/#CarrerBlog" className="nav-link">
               Career Blog
             </Link>
           </li>

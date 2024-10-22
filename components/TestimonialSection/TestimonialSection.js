@@ -11,7 +11,7 @@ export default function TestimonialSection() {
   }, []);
 
   return (
-    <section className="testimonials-section py-5">
+    <section id="TestimonialSection" className="testimonials-section py-5">
       <div className="container-sm container-md container-lg">
         <h2 className="text-center mb-3">
           HR Professionals Recommend CVXpress

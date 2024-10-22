@@ -8,3 +8,4 @@ export { default as StepSection } from "./StepSection/StepSection";
 export { default as HelpSection } from "./HelpSection/HelpSection";
 export { default as TestimonialSection } from "./TestimonialSection/TestimonialSection";
 export { default as CtaSection } from "./CtaSection/CtaSection";
+export { default as CareerBlog } from "./CareerBlog/CareerBlog";
