@@ -1,6 +1,6 @@
 // components/index.js
 
-export { default as Home } from "./home/home";
+export { default as Header } from "./Header/Header";
 export { default as TrustedLogos } from "./TrustedLogos/TrustedLogos";
 export { default as WhatSection } from "./WhatSection/WhatSection";
 export { default as FeaturesSection } from "./FeaturesSection/FeaturesSection";
