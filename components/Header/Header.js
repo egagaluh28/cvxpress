@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import Image from 'next/image';
-import Layout from "../partials/Layout.js";
 
-export default function Home() {
+export default function Header() {
   useEffect(() => {
     // Animasi untuk gambar
     const img = document.querySelector(".img-slide-in");
@@ -41,7 +40,7 @@ export default function Home() {
 
     // Animasi saat scroll
     const sections = document.querySelectorAll(
-      ".what-section, .features-section, .stats-item, .feature-item, .description, .step-section, .step-item, .help-section, .help-box, .testimonials-section, .testimonial-card"
+      ".what-section, .features-section, .stats-item, .feature-item, .description, .step-section, .step-item, .help-section, .help-box, .testimonials-section, .testimonial-card, .tool-card"
     );
     function animateOnScroll() {
       const viewHeight = window.innerHeight;
@@ -63,7 +62,6 @@ export default function Home() {
   }, []); // Hanya dijalankan sekali setelah halaman di-render
 
   return (
-    <Layout>
       <section className="hero-section">
         <div className="container-sm container-md container-lg">
           <div className="row align-items-center">
@@ -99,8 +97,5 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      
-    </Layout>
   );
 }

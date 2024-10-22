@@ -1,11 +1,23 @@
-import { Header, TrustedLogos, WhatSection, FeaturesSection, StepSection, HelpSection, TestimonialSection, CtaSection, CareerBlog } from '@/components';
+import {
+  Header,
+  TrustedLogos,
+  WhatSection,
+  FeaturesSection,
+  StepSection,
+  HelpSection,
+  TestimonialSection,
+  CtaSection,
+  CareerBlog,
+  ToolsSection,
+} from "@/components";
 
 export default function IndexPage() {
   return (
     <div>
-      <Header /> 
+      <Header />
       <TrustedLogos />
       <WhatSection />
+      <ToolsSection />
       <FeaturesSection />
       <StepSection />
       <HelpSection />

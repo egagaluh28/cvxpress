@@ -8,7 +8,7 @@ const TrustedLogos = () => {
 
   return (
     <section className="trusted-logos bg-body-secondary py-3">
-      <div className="container text-center">
+      <div className="container-sm container-md container-lg text-center">
         <h6 className="mb-2">Our Customers Have Trusted Us:</h6>
         <div className="logo-container">
           <div className="logo-wrapper">

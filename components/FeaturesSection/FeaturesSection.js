@@ -8,7 +8,7 @@ const FeaturesSection = () => {
   }, []);
 
   return (
-    <section className="features-section py-5">
+    <section className="features-section py-1">
       <div className="container-sm container-md container-lg">
         <h2 className="text-center mb-4">Why Choose CVXpress?</h2>
         <div className="row text-center">

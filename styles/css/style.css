@@ -1,5 +1,3 @@
-
-
 /* Color Palette */
 :root {
   --color-primary: #caf4ff;
@@ -377,8 +375,6 @@ footer {
   }
 }
 
-
-
 /* Penundaan animasi untuk elemen-elemen spesifik */
 .stats-item {
   animation: fadeInUp 1s ease-out forwards;
@@ -428,8 +424,6 @@ footer {
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-
-
 /* Keyframes untuk animasi fade in dan slide up */
 @keyframes slideInUp {
   to {
@@ -437,7 +431,6 @@ footer {
     transform: translateY(0);
   }
 }
-
 
 /* Penundaan animasi untuk step-item */
 .step-item {
@@ -530,8 +523,6 @@ footer {
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-
-
 /* Kelas untuk animasi */
 .animated {
   opacity: 1;
@@ -555,4 +546,42 @@ footer {
 .testimonial-card:nth-child(4) {
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 1.1s;
+}
+
+.tools-section {
+  opacity: 1; /* Initial opacity */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.tool-card {
+  opacity: 0; /* Awal tidak terlihat */
+  transform: translateY(20px); /* Geser posisi ke bawah */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi yang halus */
+}
+
+
+
+
+.animate-fade-down {
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Initial states */
+.career-blog-section .row {
+  opacity: 1; /* Start hidden */
+  transform: translateY(20px); /* Slide down */
+}
+
+.career-blog-section .col-lg-4 {
+  opacity: 1; /* Start hidden */
+  transform: translateX(20px); /* Slide from right */
 }
