@@ -1,5 +1,5 @@
 import {
-  Header,
+  Home,
   TrustedLogos,
   WhatSection,
   FeaturesSection,
@@ -14,7 +14,7 @@ import {
 export default function IndexPage() {
   return (
     <div>
-      <Header />
+      <Home />
       <TrustedLogos />
       <WhatSection />
       <ToolsSection />

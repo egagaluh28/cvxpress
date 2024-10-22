@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
-export default function Header() {
+export default function Home() {
   useEffect(() => {
     // Animasi untuk gambar
     const img = document.querySelector(".img-slide-in");
@@ -62,6 +62,7 @@ export default function Header() {
   }, []); // Hanya dijalankan sekali setelah halaman di-render
 
   return (
+    <div id="Home" className="hero-section py-4">
       <section className="hero-section">
         <div className="container-sm container-md container-lg">
           <div className="row align-items-center">
@@ -78,7 +79,7 @@ export default function Header() {
                 and land your dream job today.
               </p>
               <a
-                href="#"
+                href="/template-cv/cv"
                 className="btn btn-primary p-3 m-2 d-lg-inline d-block mx-auto rounded-5 btn-fade-in">
                 Create Your CV Now
               </a>
@@ -97,5 +98,6 @@ export default function Header() {
           </div>
         </div>
       </section>
+    </div>
   );
 }

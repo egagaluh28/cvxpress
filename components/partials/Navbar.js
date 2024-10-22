@@ -21,7 +21,7 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto gap-lg-4">
           <li className="nav-item">
-            <Link href="#" className="nav-link">
+            <Link href="/#Home" className="nav-link">
               Home
             </Link>
           </li>
