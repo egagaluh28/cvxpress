@@ -9,7 +9,7 @@ import {
   CtaSection,
   CareerBlog,
   ToolsSection,
-} from "@/components";
+} from "@/components/user";
 
 export default function IndexPage() {
   return (

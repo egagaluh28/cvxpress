@@ -1,5 +1,5 @@
 // pages/contact.js
-import Layout from '../components/partials/Layout';
+import Layout from "../components/user/partials/Layout";
 
 export default function Contact() {
   return (
