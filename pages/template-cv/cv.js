@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CVForm from "../../components/template_cv/CVForm";
-import Preview from "../../components/template_cv/Preview";
+import CVForm from "../../components/user/template_cv/CVForm";
+import Preview from "../../components/user/template_cv/Preview";
 
 const CVBuilder = () => {
   const [data, setData] = useState({
