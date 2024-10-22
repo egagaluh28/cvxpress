@@ -1,0 +1,558 @@
+
+
+/* Color Palette */
+:root {
+  --color-primary: #caf4ff;
+  --color-secondary: #161d6f;
+  --color-accent: #1f316f;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.navbar-brand,
+.nav-link {
+  font-family: "Poppins", sans-serif;
+  /* font-weight: 500; */
+}
+/* Hamburger icon style */
+
+.navbar-toggler {
+  border: none; /* Hilangkan border di tombol */
+  padding: 0;
+  background-color: transparent; /* Buat background tombol transparan */
+  outline: none; /* Hapus outline */
+  cursor: pointer; /* Ubah kursor jadi pointer */
+  transition: transform 0.3s ease-in-out; /* Tambah efek transisi untuk tombol */
+}
+
+/* Animasi hover untuk tombol agar sedikit membesar saat di-hover */
+.navbar-toggler:hover {
+  transform: scale(1.1); /* Sedikit memperbesar tombol */
+}
+
+/* Styling custom icon hamburger */
+.navbar-toggler-icon {
+  background: none !important; /* Hapus background bawaan */
+  border: none; /* Hapus border */
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-secondary); /* Warna icon */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Garis atas dan bawah */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-secondary); /* Warna garis tambahan */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Posisi garis atas */
+.navbar-toggler-icon::before {
+  top: -10px;
+}
+
+/* Posisi garis bawah */
+.navbar-toggler-icon::after {
+  top: 10px;
+}
+
+/* Ketika tombol ditekan (navbar terbuka) */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: transparent; /* Garis tengah menghilang */
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+  transform: rotate(45deg); /* Garis atas berubah menjadi diagonal */
+  top: 0;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::after {
+  transform: rotate(-45deg); /* Garis bawah berubah menjadi diagonal */
+  top: 0;
+}
+
+/* Padding yang lebih kecil di layar besar */
+@media (min-width: 992px) {
+  .container-lg {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Di layar kecil biarkan padding tetap normal */
+@media (max-width: 991.98px) {
+  .container-sm {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 50px 0;
+  background-color: #f8faff;
+}
+.hero-section h1 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.hero-section p {
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.hero-image img {
+  max-width: 60%;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+}
+
+/* logo section*/
+
+.trusted-logos {
+  position: relative;
+}
+
+.logo-container {
+  overflow: hidden; /* Menyembunyikan scrollbar */
+  position: relative; /* Untuk memposisikan logo-wrapper */
+  width: 100%; /* Agar container sesuai dengan lebar elemen logo */
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap; /* Mencegah item untuk membungkus ke baris baru */
+  animation: scroll 20s linear infinite; /* Animasi scroll otomatis */
+}
+
+.logo-inner {
+  display: flex;
+}
+
+.logo-inner img {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-inner img:hover {
+  transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+/* Keyframes untuk animasi scroll otomatis */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Menggerakkan separuh dari elemen untuk menciptakan efek mulus */
+  }
+}
+
+/* Step secton */
+
+.step-section {
+  background-color: #f8f9fa; /* Soft background */
+}
+
+.step-section h2 {
+  font-weight: 700;
+  color: #000; /* Bold heading */
+}
+
+.step-label {
+  border: none;
+  padding: 5px 10px; /* Padding horizontal diperbesar */
+  background-color: var(--color-secondary); /* Background yang lembut */
+  color: #ffffff; /* Warna teks abu-abu */
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px; /* Sudut membulat */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  margin-bottom: 15px; /* Jarak dari label ke elemen berikutnya */
+}
+
+.step-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.step-section p {
+  font-size: 1rem;
+  color: #5a5a5a;
+  margin-bottom: 20px;
+}
+
+/*what section*/
+.what-section h3,
+.what-section h4 {
+  color: var(--color-secondary);
+}
+
+/* Features Section */
+.features-section h3 {
+  color: #000;
+}
+
+.features-section p {
+  color: #555;
+}
+
+.features-section img {
+  height: 100px;
+}
+
+/* Testimonials Section */
+.testimonial-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.testimonial-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-body {
+  padding-left: 20px;
+}
+
+.testimonial-body h5 {
+  margin-bottom: 5px;
+}
+
+.testimonial-body p.role {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* help*/
+
+.help-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.help-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* .help-box {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 8px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+} */
+
+.help-box img {
+  width: 64px;
+  height: 64px;
+  margin-right: 20px;
+}
+
+.help-box h5 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.help-box p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.help-box:hover {
+  transform: translateY(-10px);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primary);
+  color: #333;
+  padding: 20px 0;
+}
+
+/*animasi*/
+/* Animasi untuk gambar yang muncul dari kanan */
+.img-slide-in {
+  opacity: 0;
+  transform: translateX(100%); /* Awal dari luar kanan layar */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi untuk gambar */
+}
+
+/* Animasi untuk teks yang muncul dari atas */
+.text-fade-down {
+  opacity: 0;
+  transform: translateY(-50px); /* Awal dari atas */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi untuk teks */
+}
+
+/* Animasi untuk tombol (btn) yang fade-in dan sedikit membesar */
+.btn-fade-in {
+  opacity: 0;
+  transform: scale(0.9); /* Awal dengan sedikit lebih kecil */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi untuk tombol */
+}
+
+.btn-fade-in:hover {
+  transform: scale(1.05); /* Tombol membesar saat hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Efek shadow saat hover */
+}
+
+/* Keyframes tidak diperlukan karena kita menggunakan transition */
+
+/* CSS untuk animasi fade in dan slide up */
+.what-section,
+.features-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.stats-item,
+.feature-item,
+.description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Keyframes untuk animasi fade in dan slide up */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes untuk animasi zoom in */
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* Penundaan animasi untuk elemen-elemen spesifik */
+.stats-item {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.stats-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.stats-item:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.stats-item:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.stats-item:nth-child(4) {
+  animation-delay: 1.1s;
+}
+
+.description {
+  animation: zoomIn 1s ease-out forwards;
+  animation-delay: 1.3s;
+}
+
+.feature-item {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.feature-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.feature-item:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.feature-item:nth-child(3) {
+  animation-delay: 0.9s;
+}
+/* CSS untuk animasi fade in dan slide up khusus untuk step-section */
+.step-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.step-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+
+
+/* Keyframes untuk animasi fade in dan slide up */
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Penundaan animasi untuk step-item */
+.step-item {
+  animation: slideInUp 1s ease-out forwards;
+}
+
+/* Penundaan animasi untuk setiap step-item */
+.step-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.step-item:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.step-item:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.step-item:nth-child(4) {
+  animation-delay: 1.1s;
+}
+/* CSS untuk animasi fade in dan scale up pada help-section */
+.help-section {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.help-box {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Keyframes untuk animasi fade in dan scale up */
+@keyframes fadeInScaleUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Keyframes untuk animasi fade in dan slide up */
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kelas untuk animasi */
+.animated {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Penundaan animasi untuk help-box */
+.help-box {
+  animation: slideInUp 1s ease-out forwards;
+}
+
+/* Penundaan animasi untuk setiap help-box */
+.help-box:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.help-box:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.help-box:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.help-box:nth-child(4) {
+  animation-delay: 1.1s;
+}
+.help-box:nth-child(5) {
+  animation-delay: 1.3s;
+}
+.help-box:nth-child(6) {
+  animation-delay: 1.5s;
+}
+/* CSS untuk animasi fade in dan slide up pada testimonials-section */
+.testimonials-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+
+
+/* Kelas untuk animasi */
+.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Penundaan animasi untuk testimonial-card */
+.testimonial-card:nth-child(1) {
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.testimonial-card:nth-child(2) {
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.7s;
+}
+.testimonial-card:nth-child(3) {
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.9s;
+}
+.testimonial-card:nth-child(4) {
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1.1s;
+}
