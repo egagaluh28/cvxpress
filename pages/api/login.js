@@ -12,7 +12,7 @@ const db = mysql.createPool({
 });
 
 // Secret key untuk JWT
-const JWT_SECRET = "your_jwt_secret";
+const JWT_SECRET = "your_jwt_secret"; // Ganti dengan secret key yang aman
 
 export default async function handler(req, res) {
   if (req.method === "POST") {

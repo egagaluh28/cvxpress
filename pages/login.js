@@ -1,27 +1,27 @@
-// /pages/login.js
+// pages/login.js
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function Login() {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Mengirim permintaan login ke API
-    const res = await fetch("/api/login", {
+    const response = await fetch("/api/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ username, password }),
     });
 
-    const data = await res.json();
-
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      router.push(data.redirect);
+    const data = await response.json();
+    if (response.ok) {
+      localStorage.setItem("token", data.token); // Simpan token ke localStorage
+      router.push(data.redirect); // Redirect sesuai dengan role
     } else {
       alert(data.message);
     }
@@ -29,8 +29,8 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Login ke CVXpress</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
         <input
           type="text"
           placeholder="Username"
@@ -49,4 +49,6 @@ export default function Login() {
       </form>
     </div>
   );
-}
+};
+
+export default Login;

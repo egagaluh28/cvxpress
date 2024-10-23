@@ -1,44 +1,67 @@
 // pages/admin/dashboard.js
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
-  const router = useRouter();
+  const [stats, setStats] = useState({
+    totalUsers: 0,
+    totalCVs: 0,
+    totalTemplates: 0,
+  });
 
   useEffect(() => {
-    // Fungsi untuk memeriksa token
-    const checkAdminAccess = async () => {
-      const token = localStorage.getItem("token"); // Ambil token dari localStorage
-
-      // Jika tidak ada token, arahkan ke halaman login
-      if (!token) {
-        router.push("/login"); // Arahkan ke halaman login
-        return;
-      }
-
+    // Fetch statistik dari backend
+    const fetchStats = async () => {
       try {
-        // Kirim permintaan ke middleware
-        const response = await fetch("/api/admin-check", {
-          method: "GET",
+        const res = await fetch('/api/admin/stats', {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-
-        if (response.status === 403) {
-          // Jika akses ditolak, arahkan ke halaman login
-          router.push("/login");
+        const data = await res.json();
+        if (res.ok) {
+          setStats(data);
+        } else {
+          alert(data.message);
         }
       } catch (error) {
-        console.error("Error checking admin access:", error);
-        router.push("/login"); // Arahkan ke halaman login jika terjadi kesalahan
+        console.error('Error fetching stats:', error);
       }
     };
 
-    checkAdminAccess(); // Panggil fungsi saat komponen dimuat
+    fetchStats();
   }, []);
 
-  return <div>Welcome to Admin Dashboard</div>; // Konten halaman dashboard
+  return (
+    <div>
+      <h1>Dashboard Overview</h1>
+      <div className="row">
+        <div className="col-md-4">
+          <div className="card text-white bg-primary mb-3">
+            <div className="card-header">Total Users</div>
+            <div className="card-body">
+              <h5 className="card-title">{stats.totalUsers}</h5>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="card text-white bg-success mb-3">
+            <div className="card-header">Total CVs</div>
+            <div className="card-body">
+              <h5 className="card-title">{stats.totalCVs}</h5>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="card text-white bg-warning mb-3">
+            <div className="card-header">Total Templates</div>
+            <div className="card-body">
+              <h5 className="card-title">{stats.totalTemplates}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  );
 };
 
 export default Dashboard;
