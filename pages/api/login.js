@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
       // Redirect sesuai dengan role
       const redirect =
-        user[0].role === "admin" ? "/admin/dashboard" : "/user";
+        user[0].role === "admin" ? "/admin/dashboard" : "/";
 
       res.status(200).json({ token, redirect });
     } catch (error) {

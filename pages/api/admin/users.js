@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   // Menggunakan middleware untuk memverifikasi admin
   await new Promise((resolve, reject) => {
     adminMiddleware(req, res, (err) => {
-      if (err) return reject(err);
+      if (err) return reject(err); // Menangani kesalahan middleware
       resolve();
     });
   });

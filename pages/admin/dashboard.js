@@ -1,5 +1,5 @@
 // pages/admin/dashboard.js
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -12,9 +12,9 @@ const Dashboard = () => {
     // Fetch statistik dari backend
     const fetchStats = async () => {
       try {
-        const res = await fetch('/api/admin/stats', {
+        const res = await fetch("/api/admin/stats", {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
         const data = await res.json();
@@ -24,7 +24,7 @@ const Dashboard = () => {
           alert(data.message);
         }
       } catch (error) {
-        console.error('Error fetching stats:', error);
+        console.error("Error fetching stats:", error);
       }
     };
 
@@ -60,7 +60,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
-// api/admin/stats.js
 import jwt from "jsonwebtoken";
+import mysql from "mysql2/promise";
 
 const JWT_SECRET =
   "02dd7175f8e35db07e032b9cabff9c29c141a6c85eee55bafe5bbf7f0c333db026aafa8173e3cca4d80a771f4be5881e6bff76db2b3ea1664cc67da50027261d"; // Ganti dengan secret key kamu
@@ -32,16 +32,18 @@ export default async function handler(req, res) {
       }
 
       // Fetch statistik
-      const [Users] = await db.query("SELECT COUNT(*) as count FROM users");
-      const [CV] = await db.query("SELECT COUNT(*) as count FROM cv");
-      const [Templates] = await db.query(
+      const [usersResult] = await db.execute(
+        "SELECT COUNT(*) as count FROM users"
+      );
+      const [cvResult] = await db.execute("SELECT COUNT(*) as count FROM cv");
+      const [templatesResult] = await db.execute(
         "SELECT COUNT(*) as count FROM templates"
       );
 
       res.status(200).json({
-        totalUsers: Users[0].count,
-        totalCVs: CV[0].count,
-        totalTemplates: Templates[0].count,
+        totalUsers: usersResult[0].count,
+        totalCVs: cvResult[0].count,
+        totalTemplates: templatesResult[0].count,
       });
     } catch (error) {
       console.error("Error verifying token:", error);

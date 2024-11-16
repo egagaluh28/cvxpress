@@ -1,25 +1,36 @@
 // middleware/admin.js
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET =
-  "f6c4f7a886c075f0b9a7e7114c8c6b792e8dfd1d653838994a0fa5f201b2bf375058a1567ea80327cb9dae2d3fa3e7f30dfa2e8bf29eac354e57ebe6bc5ab17e"; // Ganti dengan secret key kamu
+// Ganti dengan secret key kamu, sebaiknya simpan di variabel lingkungan
+const JWT_SECRET = process.env.JWT_SECRET || "your_default_secret_key";
 
 export default function adminMiddleware(req, res, next) {
-  const token = req.headers.authorization?.split(" ")[1]; // Ambil token dari header Authorization
+  // Ambil token dari header Authorization
+  const token = req.headers.authorization?.split(" ")[1];
+
+  // Jika tidak ada token, kirim 401 Unauthorized
   if (!token) {
-    return res.status(401).json({ message: "Unauthorized" }); // Jika tidak ada token, kirim 401 Unauthorized
+    return res.status(401).json({ message: "Unauthorized" });
   }
 
   try {
     // Verifikasi token
     const decoded = jwt.verify(token, JWT_SECRET);
+
+    // Periksa apakah pengguna adalah admin
     if (decoded.role !== "admin") {
       return res
         .status(403)
-        .json({ message: "Access denied. You are not an admin." }); // Jika bukan admin, kirim 403 Forbidden
+        .json({ message: "Access denied. You are not an admin." });
     }
-    next(); // Lanjutkan ke middleware berikutnya atau handler
+
+    // Simpan informasi pengguna yang terdecoding di request untuk digunakan di handler berikutnya
+    req.user = decoded;
+
+    // Lanjutkan ke middleware berikutnya atau handler
+    next();
   } catch (error) {
-    return res.status(401).json({ message: "Invalid token" }); // Jika token tidak valid, kirim 401 Unauthorized
+    // Jika token tidak valid, kirim 401 Unauthorized
+    return res.status(401).json({ message: "Invalid token" });
   }
 }
